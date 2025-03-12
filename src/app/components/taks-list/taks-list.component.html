@@ -1,0 +1,29 @@
+<div flex>
+  <input [(ngModel)]="newTask" placeholder="New Task" />
+  <button (click)="addTask()" class="button-add">Add Task</button>
+
+  <div>
+    <label>Filter: </label>
+    <select [(ngModel)]="filter" (change)="updateFilter()">
+      <option>All</option>
+      <option>Completed</option>
+      <option>Incomplete</option>
+    </select>
+  </div>
+</div>
+
+<ul>
+  <li *ngFor="let task of tasks$ | async">
+    <div flex-li>
+      <div flex>
+        <input
+          type="checkbox"
+          [checked]="task.completed"
+          (change)="toggleTask(task)"
+        />
+        <span [ngClass]="{ completed: task.completed }">{{ task.name }}</span>
+      </div>
+      <button (click)="deleteTask(task)" class="delete-button">Delete</button>
+    </div>
+  </li>
+</ul>
