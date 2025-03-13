@@ -6,22 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Description
+This is a simple project in Angular that demonstrates basic knowledge by creating a simple application for assigning tasks that are saved in the browser's localstorage.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+No external libraries were used in this project, only components and features present in Angular.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+A concept of dependency inversion with Angular was also used to reduce the level of coupling in the project. For this, an interface and an abstract class were defined that define the service contracts for controlling the tasks that are inserted, facilitating the exchange between the different possibilities for saving tasks. This project was exemplified with a solution using localstorage and also a possible implementation using Angular's HttpClient.
