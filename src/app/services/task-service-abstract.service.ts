@@ -7,5 +7,5 @@ export abstract class TaskServiceAbstractService implements ITaskService {
   abstract addTask(name: string);
   abstract toggleTask(task: Task);
   abstract deleteTask(task: Task);
-  abstract getFilteredTasks(filter: string);
+  abstract getFilteredTasks(filter: string): Observable<Task[]>;
 }

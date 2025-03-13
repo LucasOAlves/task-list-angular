@@ -15,9 +15,6 @@ export class TaksListComponent implements OnInit {
   public filter: string = 'All';
   public newTask: string = '';
 
-  /**
-   * Here I'm importing the abstract service using dependency inversion to be possible to switch between impletations, in this case saving in localstorage or saving using an external API.
-   */
   constructor(private taskService: TaskServiceAbstractService) {}
 
   ngOnInit(): void {
