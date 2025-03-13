@@ -5,9 +5,9 @@
   <div>
     <label>Filter: </label>
     <select [(ngModel)]="filter" (change)="updateFilter()">
-      <option>All</option>
-      <option>Completed</option>
-      <option>Incomplete</option>
+      <option value="All">All</option>
+      <option value="Completed">Completed</option>
+      <option value="Incomplete">Incomplete</option>
     </select>
   </div>
 </div>

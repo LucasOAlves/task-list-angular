@@ -1,6 +1,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Task } from '../models/task.type';
 import { TaskServiceAbstractService } from './task-service-abstract.service';
+import { map } from 'rxjs/operators';
 
 export class MockTaskService extends TaskServiceAbstractService {
   private tasksSubject = new BehaviorSubject<Task[]>([]);
@@ -35,9 +36,14 @@ export class MockTaskService extends TaskServiceAbstractService {
   }
 
   getFilteredTasks(filter: string): Observable<Task[]> {
-    const filteredTasks = this.tasks.filter((task) =>
-      task.name.includes(filter)
+    return this.tasks$.pipe(
+      map((tasks: Task[]) =>
+        filter === 'All'
+          ? tasks
+          : filter === 'Completed'
+          ? tasks.filter((t) => t.completed)
+          : tasks.filter((t) => !t.completed)
+      )
     );
-    return new BehaviorSubject(filteredTasks).asObservable();
   }
 }

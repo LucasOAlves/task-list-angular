@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ITaskService } from './task-service-interface.interface';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Task } from '../models/task.type';
 import { map } from 'rxjs/operators';
 import { TaskServiceAbstractService } from './task-service-abstract.service';
@@ -45,7 +44,7 @@ export class TaskServiceLocalStorageImplementationService extends TaskServiceAbs
     this.saveTasks(updatedTasks);
   }
 
-  getFilteredTasks(filter: string) {
+  getFilteredTasks(filter: string): Observable<Task[]> {
     return this.tasks$.pipe(
       map((tasks: Task[]) =>
         filter === 'All'

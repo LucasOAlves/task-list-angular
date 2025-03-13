@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Task } from 'src/app/models/task.type';
 import { TaskServiceAbstractService } from 'src/app/services/task-service-abstract.service';
-import { ITaskService } from 'src/app/services/task-service-interface.interface';
 
 @Component({
   selector: 'app-taks-list',
@@ -18,6 +16,10 @@ export class TaksListComponent implements OnInit {
   constructor(private taskService: TaskServiceAbstractService) {}
 
   ngOnInit(): void {
+    this.loadTask();
+  }
+
+  loadTask() {
     this.tasks$ = this.taskService.getFilteredTasks(this.filter);
   }
 
@@ -39,6 +41,6 @@ export class TaksListComponent implements OnInit {
   }
 
   updateFilter() {
-    this.tasks$ = this.taskService.getFilteredTasks(this.filter);
+    this.loadTask();
   }
 }
