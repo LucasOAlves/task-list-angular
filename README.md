@@ -1,6 +1,6 @@
 # TodoList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.4. and node version 14.21.3
 
 ## Development server
 
